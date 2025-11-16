@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "http://localhost:5000", // your backend
+    baseURL: "https://hackathon-yaman.onrender.com/", // your backend
     withCredentials: true,
 });
 
