@@ -47,7 +47,7 @@ export default function SentimentChart({ searchQuery }: ComponentProps) {
             const q = searchQuery || "samsung";
             try {
                 const res = await axios.get<{ mentions: Mention[] }>(
-                    `http://localhost:5000/api/mentions/search?q=${encodeURIComponent(q)}`
+                    `https://hackathon-yaman.onrender.com/api/mentions/search?q=${encodeURIComponent(q)}`
                 );
 
                 const mentions = res.data.mentions || [];
@@ -79,8 +79,8 @@ export default function SentimentChart({ searchQuery }: ComponentProps) {
     return (
         <div
             className={`rounded-xl shadow p-4 pb-8 min-h-[22rem] transition-colors duration-300 ${theme === "dark"
-                    ? "bg-[#1E1E1E] text-white"
-                    : "bg-white text-gray-900"
+                ? "bg-[#1E1E1E] text-white"
+                : "bg-white text-gray-900"
                 }`}
         >
             <h3 className="text-lg font-semibold mb-3">Sentiment Distribution</h3>

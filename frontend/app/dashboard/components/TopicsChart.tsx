@@ -31,7 +31,7 @@ export default function TopicsChart({ searchQuery }: ComponentProps) {
         async function fetchData() {
             try {
                 const res = await axios.get(
-                    `http://localhost:5000/api/mentions/search?q=${encodeURIComponent(
+                    `https://hackathon-yaman.onrender.com/api/mentions/search?q=${encodeURIComponent(
                         effectiveQuery
                     )}`
                 );
@@ -99,8 +99,8 @@ export default function TopicsChart({ searchQuery }: ComponentProps) {
                             return (
                                 <div
                                     className={`backdrop-blur-md px-3 py-2 rounded-xl shadow-lg text-sm border ${theme === "dark"
-                                            ? "bg-white/10 text-white border-white/10"
-                                            : "bg-white/80 text-gray-900 border-gray-200"
+                                        ? "bg-white/10 text-white border-white/10"
+                                        : "bg-white/80 text-gray-900 border-gray-200"
                                         }`}
                                 >
                                     <p className="font-semibold">{item.payload.name}</p>

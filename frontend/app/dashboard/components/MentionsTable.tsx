@@ -28,7 +28,7 @@ export default function MentionsTable({ mentions = [], searchQuery = "" }: Menti
 
     const fetchMentions = async (skipVal = 0) => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/mentions?skip=${skipVal}&limit=${limit}`);
+            const res = await axios.get(`https://hackathon-yaman.onrender.com/api/mentions?skip=${skipVal}&limit=${limit}`);
             const data = res.data.mentions as Mention[];
             setFetchedMentions(prev => skipVal === 0 ? data : [...prev, ...data]);
             setTotal(res.data.total);
@@ -65,7 +65,7 @@ export default function MentionsTable({ mentions = [], searchQuery = "" }: Menti
                         <tr key={idx} className={`border-b ${theme === "dark" ? "border-[#333] hover:bg-[#2a2a2a]" : "hover:bg-gray-50"}`}>
                             <td className="px-2 py-1">{m.title}</td>
                             <td className={`px-2 py-1 font-semibold ${m.sentiment === "positive" ? "text-green-500" :
-                                    m.sentiment === "negative" ? "text-red-500" : theme === "dark" ? "text-[#a0a0a0]" : "text-gray-600"
+                                m.sentiment === "negative" ? "text-red-500" : theme === "dark" ? "text-[#a0a0a0]" : "text-gray-600"
                                 }`}>{m.sentiment}</td>
                             <td className="px-2 py-1">{m.topic}</td>
                             <td className="px-2 py-1">{m.source}</td>

@@ -34,7 +34,7 @@ export default function Dashboard() {
         setError("");
         try {
             const res = await axios.get(
-                `http://localhost:5000/api/mentions/search?q=${encodeURIComponent(query)}`
+                `https://hackathon-yaman.onrender.com/api/mentions/search?q=${encodeURIComponent(query)}`
             );
             setSearchResults(res.data.mentions);
         } catch (err: any) {
@@ -56,7 +56,7 @@ export default function Dashboard() {
         const fetchSpikes = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:5000/api/mentions/spike?q=" + (searchQuery || "delhi")
+                    "https://hackathon-yaman.onrender.com/api/mentions/spike?q=" + (searchQuery || "delhi")
                 );
 
                 const data = res.data;
